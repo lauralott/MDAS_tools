@@ -6,7 +6,6 @@ import (
 
 	"github.com/gorilla/websocket"
 	"github.com/labstack/echo"
-	"github.com/labstack/echo/middleware"
 )
 
 var (
@@ -16,10 +15,7 @@ var (
 )
 
 func main() {
-	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"*"},
-		AllowMethods: []string{"*"},
-	}))
+	e.Static("/", "ui")
 
 	api := "/vote"
 	e.GET(api, log(getVotes))
@@ -28,7 +24,7 @@ func main() {
 	e.DELETE(api, log(finishVoting))
 	e.GET("/ws", log(serveWs))
 
-	e.Logger.Fatal(e.Start(fmt.Sprintf(":%v", getenv("VOTING_API_PORT", "8081"))))
+	e.Logger.Fatal(e.Start(fmt.Sprintf(":%v", getenv("VOTINGAPP_PORT", "8080"))))
 }
 
 func sendMessage(value interface{}) error {

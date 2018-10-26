@@ -1,5 +1,5 @@
 const votingApi = (function () {
-    const apiUrl = `//${window.location.hostname}:8081/vote`;
+    const apiUrl = `//${window.location.host}/vote`;
 
     const client = (url, method, body) =>
         fetch(url, { method, headers: { Accept: 'application/json', 'Content-Type': 'application/json' }, body });
@@ -21,7 +21,7 @@ const votingApi = (function () {
             .then(r => r.json());
 
     const subscribe = (action) => {
-        const webSocket = new WebSocket(`ws://${window.location.hostname}:8081/ws`);
+        const webSocket = new WebSocket(`ws://${window.location.host}/ws`);
         webSocket.onmessage = ({ data }) => {
             action(JSON.parse(data));
         }
