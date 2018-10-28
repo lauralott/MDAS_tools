@@ -21,6 +21,6 @@ Refactor pipeline with docker compose.
   * Always Add and Update the README.md instructions about how to run your project and other relevant information.
 
 **Instructions**
-  * Join the Slack channel
+  * [Join the Slack channel](https://join.slack.com/t/mdas-principios/shared_invite/enQtNDY3NTg5NzE0NjMwLWE0MDU3MWU1MzExOTVlM2M0NmJhMDIxZTJhMDQ1YTM0MTIxOTkxMGI4NWUzMmVlY2Y2MmQ2NjJmYmM0NzE1MjE)
   * Send me your private repo inviting me with read access.
   * Evaluation will be based on incremental regular deliveries (50%) and work committed during each session (50%).
