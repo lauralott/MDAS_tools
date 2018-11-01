@@ -51,7 +51,9 @@ if build > log 2> error; then
     echo "Test Passed"
   else
     echo "Test Failed"
+    exit 1
   fi
 else
   echo "FAILED"
+  exit 1
 fi
