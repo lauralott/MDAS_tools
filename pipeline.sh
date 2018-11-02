@@ -1,3 +1,4 @@
+
 votingappPath='./src/votingapp'
 build(){
     pushd $votingappPath  #utilizar pushd en lugar del cd
@@ -46,11 +47,12 @@ test(){
 if build > log 2 > error; then 
     echo "Build completed"
     run
-    if test; then
-        echo "Test passed"
+    #if test; then
+    if [ $(py test.py) = "0" ]; then
+        echo "Test passed - yay!"
     else
         echo "Test Failed"   
-    fi     
+    fi
 else
     echo "FAILED"
 fi    
