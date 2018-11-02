@@ -48,7 +48,7 @@ if build > log 2 > error; then
     echo "Build completed"
     run
     #if test; then
-    if [ $(py test.py) = "0" ]; then
+    if $(py test.py); then
         echo "Test passed - yay!"
     else
         echo "Test Failed"   

@@ -1,4 +1,5 @@
 import requests
+import sys
 
 def testBashWins():
     topics=["bash","python","go"]
@@ -18,8 +19,8 @@ def testBashWins():
     winner = r['winner']
 
     if (winner == expectedWinner):
-        return 0
+        sys.exit()
     else:
-        return 1
+        sys.exit(1)
 
 print(testBashWins())
