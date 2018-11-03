@@ -44,16 +44,9 @@ test(){
   fi
 }
 
-if build > log 2> error; then
-  echo "Build Completed"
-  run
-  if test; then
-    echo "Test Passed"
-  else
-    echo "Test Failed"
-    exit 1
-  fi
+if (build && run && test) > log 2> error; then
+  echo "Pipeline WORKING!"
 else
-  echo "FAILED"
+  echo "Pipeline FAILED!"
   exit 1
 fi
