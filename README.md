@@ -35,6 +35,7 @@ Run Managed Kubernetes cluster (provisioned with terraform)
   * Plugins: vscode-icons, Go, Python, Docker 
 * [Git](https://git-scm.com/downloads)
 * [Docker](https://www.docker.com/products/docker-desktop)
+* [Minikube](https://github.com/kubernetes/minikube)
 * [Python](https://www.python.org/downloads/)
 * [Golang](https://golang.org/dl/)
 * [HomeBrew (mac only)](https://brew.sh/)
