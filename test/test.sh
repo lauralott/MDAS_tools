@@ -1,4 +1,4 @@
-url=$(VOTING_URL:-'http://votingapp:8080/vote')
+url='http://votingapp:8080/vote'
 http_client(){
     curl --url url \
     --request $1 \
