@@ -1,3 +1,4 @@
+#
 # >> BUILDER
 FROM golang:alpine AS builder
 RUN apk add --update git bash
@@ -11,7 +12,9 @@ RUN go build -o /deploy/votingapp && cp -r ui /deploy
 
 # >> RUNTIME
 FROM golang:alpine
+RUN apk add --update bash
 WORKDIR /app
 COPY --from=builder /deploy .
-ENTRYPOINT [ "./votingapp" ]
+ENTRYPOINT [ "bash", "-c", "sleep 5 && ./votingapp" ]
+# adds sleep to simulate delay in startup
 
