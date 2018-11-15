@@ -20,6 +20,7 @@ done
 winner=$(http_client DELETE | jq -r '.winner')
 
 if [ "$expectedWinner" = "$winner" ]; then
+  echo 'TEST PASSED'
   exit 0
 else 
   echo 'TEST FAILED'

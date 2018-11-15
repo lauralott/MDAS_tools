@@ -1,0 +1,20 @@
+version: "3.6"
+
+services:
+  votingapp:
+    image: ${REGISTRY:-paulopez}/votingapp
+    build:
+      context: ./src/votingapp-redis
+      dockerfile: Dockerfile
+    environment: 
+      REDIS: database:6379
+
+  database:
+    image: redis
+  
+  votingapp-test:
+    image: votingapp-test
+    build:
+      context: ./test
+    environment: 
+      VOTING_URL: http://votingapp:8080/vote
