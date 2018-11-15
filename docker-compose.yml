@@ -1,0 +1,38 @@
+version: "3.6"
+
+services: 
+
+  gateway:
+    image: lauracortez/gateway
+    build:
+      context: ./src/gateway/
+    ports:
+      - 8080:80
+
+  votingapp:
+    #image: $(REGISTRY-:lauracortez)/votingapp
+    image: lauracortez/votingapp
+    build:
+      context: ./src/votingapp-redis
+      dockerfile: Dockerfile
+    #ports:
+    #  - 8085:8080 #not needed -- nginx will take care of this
+    environment:
+      REDIS: database:6379 
+
+  database:
+    image: redis
+    #ports:
+    #  - 6379:6379 #optional, not safe in production  
+
+  votingapp-test:
+    image: votingapp-test
+    build:
+      context: ./test 
+    environment:
+      VOTING_URL: http://votingapp:8080/vote
+      
+      #
+      #docker-compose up --build -d
+      #docker-compose ps
+      #docker-compose log
